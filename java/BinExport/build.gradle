@@ -55,10 +55,17 @@ protobuf {
             it.group = 'generate proto'
         }
     }
+    generatedFilesBaseDir = "$projectDir/build/generated/source/proto/"
 }
 
 // Required for IDEs to find the generated sources.
 sourceSets {
+    main {
+        proto {
+                srcDirs = ['../../']
+                includes = ['*.proto']
+        }
+    }
     generated {
         java.srcDirs 'build/generated/source/proto/main/java'
     }
